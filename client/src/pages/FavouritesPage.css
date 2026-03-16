@@ -1,0 +1,13 @@
+.favs-page { background: #020a06; min-height: 100vh; padding-bottom: 80px; }
+.favs-hero { text-align: center; padding: 60px 60px 48px; }
+.favs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+.empty-favs { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 100px 20px; text-align: center; }
+.empty-icon { font-size: 60px; }
+.empty-favs h3 { font-family: 'Orbitron', sans-serif; font-size: 24px; color: white; }
+.empty-favs p { font-size: 16px; color: rgba(255,255,255,0.4); }
+.go-btn { background: #00ff88; border: none; color: #000; padding: 14px 32px; border-radius: 50px; font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.3s; margin-top: 8px; }
+.go-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,255,136,0.4); }
+.page-loading { display: flex; justify-content: center; align-items: center; min-height: 60vh; }
+.spinner { width: 48px; height: 48px; border: 3px solid rgba(0,255,136,0.1); border-top-color: #00ff88; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 700px) { .favs-grid, .favs-hero { padding-left: 20px; padding-right: 20px; } }

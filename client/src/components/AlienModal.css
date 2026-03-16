@@ -1,0 +1,43 @@
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(8px); z-index: 5000;
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.modal-card {
+  background: linear-gradient(135deg, #0a1a0e, #041009);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
+  display: flex; max-width: 720px; width: 100%; overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px color-mix(in srgb, var(--accent, #00ff88) 12%, transparent);
+}
+.modal-close {
+  position: absolute; top: 14px; right: 14px;
+  background: rgba(255,255,255,0.08); border: none; color: white;
+  width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+  font-size: 14px; z-index: 2; transition: background 0.2s;
+}
+.modal-close:hover { background: rgba(255,255,255,0.18); }
+.modal-img { width: 260px; flex-shrink: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; padding: 30px; }
+.modal-img img { max-width: 200px; object-fit: contain; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6)); }
+.modal-info { padding: 32px 28px; flex: 1; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; }
+.modal-type {
+  font-family: 'Orbitron', sans-serif; font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 4px 12px; border: 1px solid;
+  border-radius: 20px; display: inline-block; width: fit-content;
+  color: var(--accent, #00ff88); border-color: color-mix(in srgb, var(--accent, #00ff88) 40%, transparent);
+}
+.modal-name { font-family: 'Orbitron', sans-serif; font-size: clamp(24px,3vw,38px); font-weight: 900; color: var(--accent, #00ff88); line-height: 1; }
+.modal-planet { font-family: 'Orbitron', sans-serif; font-size: 11px; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+.modal-desc { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.65); }
+.modal-power { display: flex; flex-direction: column; gap: 8px; }
+.modal-power-label { display: flex; justify-content: space-between; font-family: 'Orbitron', sans-serif; font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+.modal-power-track { width: 100%; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.modal-power-fill { height: 100%; border-radius: 2px; }
+.modal-ab-label { font-family: 'Orbitron', sans-serif; font-size: 10px; letter-spacing: 0.18em; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 8px; display: block; }
+.modal-ab-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.modal-tag { font-size: 11px; font-family: 'Rajdhani', sans-serif; font-weight: 600; padding: 4px 12px; border: 1px solid; border-radius: 20px; text-transform: uppercase; }
+.series-tag { color: rgba(255,255,255,0.5) !important; border-color: rgba(255,255,255,0.1) !important; }
+@media (max-width: 600px) {
+  .modal-card { flex-direction: column; }
+  .modal-img { width: 100%; height: 200px; }
+}

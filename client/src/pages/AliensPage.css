@@ -1,0 +1,82 @@
+.aliens-page { background: #020a06; min-height: 100vh; }
+.aliens-hero { padding: 60px 60px 40px; background: linear-gradient(160deg, #020f06, #041a0c, #020a06); }
+.search-wrap { max-width: 500px; margin: 0 auto 30px; }
+.search-input {
+  width: 100%; background: rgba(255,255,255,0.04); border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 50px; padding: 12px 24px; color: white; font-size: 15px;
+  font-family: 'Rajdhani', sans-serif; outline: none; transition: all 0.3s;
+}
+.search-input::placeholder { color: rgba(255,255,255,0.3); }
+.search-input:focus { border-color: #00ff88; box-shadow: 0 0 20px rgba(0,255,136,0.15); }
+
+/* Filter tabs */
+.filter-tabs { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.filter-tab {
+  font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 8px 18px; border-radius: 30px;
+  border: 1.5px solid rgba(255,255,255,0.1); background: transparent;
+  color: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.3s;
+}
+.filter-tab:hover { border-color: rgba(0,255,136,0.4); color: #00ff88; }
+.filter-tab.active { border-color: #00ff88; color: #000; background: #00ff88; }
+
+/* Ultimate tab special styling */
+.filter-tab--ultimate {
+  border-color: rgba(180,0,255,0.3);
+  color: rgba(180,0,255,0.7);
+}
+.filter-tab--ultimate:hover {
+  border-color: #cc66ff;
+  color: #cc66ff;
+  box-shadow: 0 0 14px rgba(180,0,255,0.2);
+}
+.filter-tab--ultimate.active {
+  background: linear-gradient(135deg, #9900cc, #cc44ff);
+  border-color: #cc44ff;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(180,0,255,0.4);
+}
+
+/* Grid */
+.aliens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 60px 80px;
+}
+
+/* Card wrapper for badge */
+.alien-card-wrap { position: relative; }
+.alien-ult-badge {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  z-index: 20;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #000;
+  padding: 3px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+/* Loading / messages */
+.page-loading { display: flex; justify-content: center; padding: 80px; }
+.spinner {
+  width: 48px; height: 48px;
+  border: 3px solid rgba(0,255,136,0.1);
+  border-top-color: #00ff88;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.no-results { grid-column: 1/-1; text-align: center; padding: 60px; color: rgba(255,255,255,0.3); font-family: 'Orbitron', sans-serif; }
+
+@media (max-width: 700px) {
+  .aliens-hero, .aliens-grid { padding: 40px 20px; }
+}

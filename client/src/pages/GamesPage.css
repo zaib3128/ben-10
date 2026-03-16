@@ -1,0 +1,24 @@
+.games-page { background: #020a06; min-height: 100vh; padding-bottom: 80px; }
+.games-hero { text-align:center; padding: 60px 60px 48px; }
+.games-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:24px; max-width:1200px; margin:0 auto; padding:0 60px; }
+.game-card { background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.07); border-radius:16px; overflow:hidden; cursor:pointer; transition:all 0.3s; }
+.game-card:hover { border-color:var(--gc,#00ff88); box-shadow:0 16px 40px rgba(0,0,0,0.4); }
+.game-thumb { height:180px; background:rgba(0,0,0,0.25); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.game-thumb img { height:150px; width:auto; object-fit:contain; filter:drop-shadow(0 10px 20px rgba(0,0,0,0.5)); transition:transform 0.4s; }
+.game-card:hover .game-thumb img { transform:scale(1.08); }
+.game-tag { position:absolute; top:12px; right:12px; font-family:'Orbitron',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:20px; }
+.game-body { padding:20px; display:flex; flex-direction:column; gap:10px; }
+.game-meta { display:flex; justify-content:space-between; align-items:center; }
+.game-platform { font-size:11px; color:rgba(255,255,255,0.3); font-family:'Orbitron',sans-serif; }
+.game-year { font-family:'Orbitron',sans-serif; font-size:11px; opacity:0.7; }
+.game-title { font-family:'Orbitron',sans-serif; font-size:15px; font-weight:700; color:white; line-height:1.3; }
+.game-desc { font-size:13px; line-height:1.6; color:rgba(255,255,255,0.5); }
+.game-footer { display:flex; justify-content:space-between; align-items:center; margin-top:4px; }
+.game-stars { display:flex; align-items:center; gap:2px; }
+.rating-num { margin-left:6px; font-family:'Orbitron',sans-serif; font-size:12px; color:rgba(255,255,255,0.45); }
+.g-btn { font-family:'Orbitron',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:6px 14px; border-radius:20px; border:1.5px solid; background:transparent; cursor:pointer; transition:all 0.3s; }
+.g-btn:hover { background:var(--gc,#00ff88); color:#000 !important; border-color:var(--gc,#00ff88); }
+.page-loading { display:flex; justify-content:center; align-items:center; min-height:60vh; }
+.spinner { width:48px; height:48px; border:3px solid rgba(0,255,136,0.1); border-top-color:#00ff88; border-radius:50%; animation:spin 0.8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+@media (max-width:700px) { .games-grid,.games-hero { padding-left:20px; padding-right:20px; } }

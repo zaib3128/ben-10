@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #00ff88;
+  --green-dark: #00cc6a;
+  --bg: #020a06;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: var(--bg);
+  color: #fff;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+.cursor {
+  position: fixed; width: 10px; height: 10px;
+  background: var(--green); border-radius: 50%;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  position: fixed; width: 34px; height: 34px;
+  border: 1.5px solid var(--green); border-radius: 50%;
+  pointer-events: none; z-index: 99998;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+::selection { background: var(--green); color: #000; }
+
+.app { position: relative; min-height: 100vh; }
+
+.sec-label {
+  font-family: 'Orbitron', sans-serif; font-size: 11px;
+  letter-spacing: 0.3em; color: rgba(255,255,255,0.3);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.sec-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: white;
+}
+.sec-sub {
+  font-size: 15px; color: rgba(255,255,255,0.4);
+  font-family: 'Rajdhani', sans-serif; margin-top: 8px;
+}
+.section-head { text-align: center; margin-bottom: 48px; }
+.page-wrapper { padding-top: 80px; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* @import "tailwindcss"; */

@@ -41,22 +41,20 @@ if (process.env.NODE_ENV === 'production') {
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'OK', message: 'Ben 10 API Running' }));
 
-// Connect MongoDB then start server
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('✅ MongoDB Connected');
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
-  })
-  .catch((err) => {
-    console.error('❌ MongoDB connection error:', err.message);
-    process.exit(1);
-  });
-// server/index.js — near the bottom
+// Connect to MongoDB (cached across cold starts)
+let isConnected = false;
+async function connectDB() {
+  if (isConnected) return;
+  await mongoose.connect(process.env.MONGO_URI);
+  isConnected = true;
+  console.log('✅ MongoDB Connected');
+}
+connectDB().catch((err) => console.error('❌ MongoDB connection error:', err.message));
+
+// Local dev only
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 5001;
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
 }
 
 module.exports = app;

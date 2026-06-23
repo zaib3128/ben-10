@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
+// Should print: ben-10
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
 
 const Alien   = require('../models/Alien');
 const Episode = require('../models/Episode');

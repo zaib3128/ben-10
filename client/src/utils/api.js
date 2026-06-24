@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // In production uses Render backend URL, in development uses Vite proxy
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://ben-10-back.vercel.app'
+const BASE_URL = import.meta.env.VITE_API_URL || ''
 
 const API = axios.create({ baseURL: `${BASE_URL}/api` })
 

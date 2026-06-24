@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-
 dotenv.config();
 
 const app = express();
@@ -20,14 +19,6 @@ const gameRoutes      = require('./routes/gameRoutes');
 const authRoutes      = require('./routes/authRoutes');
 const favouriteRoutes = require('./routes/favouriteRoutes');
 
-app.use('/api/aliens',     alienRoutes);
-app.use('/api/episodes',   episodeRoutes);
-app.use('/api/games',      gameRoutes);
-app.use('/api/auth',       authRoutes);
-app.use('/api/favourites', favouriteRoutes);
-
-app.get('/api/health', (req, res) => res.json({ status: 'OK', message: 'Ben 10 API Running' }));
-
 let isConnected = false;
 async function connectDB() {
   if (isConnected) return;
@@ -35,7 +26,24 @@ async function connectDB() {
   isConnected = true;
   console.log('✅ MongoDB Connected');
 }
-connectDB().catch((err) => console.error('❌ MongoDB connection error:', err.message));
+
+// Wait for DB before every request
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(500).json({ message: 'DB connection failed' });
+  }
+});
+
+app.use('/api/aliens',     alienRoutes);
+app.use('/api/episodes',   episodeRoutes);
+app.use('/api/games',      gameRoutes);
+app.use('/api/auth',       authRoutes);
+app.use('/api/favourites', favouriteRoutes);
+
+app.get('/api/health', (req, res) => res.json({ status: 'OK', message: 'Ben 10 API Running' }));
 
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 5001;
